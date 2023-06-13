@@ -13,8 +13,8 @@ class HealtUnitsController extends Controller
      */
     public function index()
     {
-        $unidades = HealthUnit::get();
-        return view('unidades.index', compact('unidades'));
+        $health_units = HealthUnit::paginate(10);
+        return view('unidades.index', compact('health_units'));
     }
 
     /**

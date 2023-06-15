@@ -61,7 +61,7 @@ class HealtUnitsController extends Controller
     {
         $healthUnit->fill($request->all());
         $healthUnit->save();
-        return redirect()->route('health_units.index');
+        return redirect()->to('health_units');
     }
 
     /**
@@ -70,6 +70,6 @@ class HealtUnitsController extends Controller
     public function destroy(HealthUnit $healthUnit)
     {
         $healthUnit->delete();
-        return redirect()->route('health_units.index');
+        return redirect()->to('health_units');
     }
 }

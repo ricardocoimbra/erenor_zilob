@@ -11,20 +11,23 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('companions', function (Blueprint $table) {
+        Schema::create('patients', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('patient_id');
-            $table->foreign('patient_id')->references('id')->on('patients');
             $table->string('name', 100);
-            $table->string('rg', 100);
-            $table->string('cpf', 100);
-            $table->unsignedBigInteger('kindship_id');
-            $table->foreign('kindship_id')->references('id')->on('kindships');
+            $table->string('rg', 15);
+            $table->string('cpf', 15);
+            $table->date('dt_nascimento');
+            $table->string('cns', 20);
+            $table->string('telefone', 50);
             $table->string('cep', 8);
             $table->string('logradouro', 100);
+            $table->string('numero', 100);
             $table->string('bairro', 100);
-            $table->string('cns', 20);
-
+            $table->text('complemento')->nullable();
+            $table->string('ac', 2)->nullable();
+            $table->string('transp', 1)->nullable();
+            $table->boolean('obito')->default(false);
+            $table->date('dt_obito')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -35,6 +38,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('companions');
+        Schema::dropIfExists('patients');
     }
 };

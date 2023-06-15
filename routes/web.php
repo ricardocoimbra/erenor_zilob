@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HealtUnitsController;
+use App\Http\Controllers\PatientsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,7 @@ Route::get('/', function () {
 
 Route::resources([
     'health_units' => HealtUnitsController::class,
+    'patients' => PatientsController::class,
 ]);
 
 Auth::routes();

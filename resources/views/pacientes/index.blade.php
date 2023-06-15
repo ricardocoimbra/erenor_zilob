@@ -8,27 +8,27 @@
                     <div class="card-header">Unidades</div>
 
                     <div class="card-body">
-                        <a href="{{ route('health_units.create') }}" class="btn btn-primary mb-3" >Cadastrar unidade</a>
-                        @if(count($health_units) > 0)
+                        <a href="{{ route('patients.create') }}" class="btn btn-primary mb-3" >Cadastrar paciente</a>
+                        @if(count($patients) > 0)
                             <table class="table table-bordered">
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>CNES</th>
+                                    <th>CNS</th>
                                     <th>Nome</th>
                                     <th>Ações</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($health_units as $health_unit)
+                                @foreach($patients as $patient)
                                     <tr>
-                                        <td>{{ $health_unit->id }}</td>
-                                        <td>{{ $health_unit->cnes }}</td>
-                                        <td>{{ $health_unit->name }}</td>
+                                        <td>{{ $patient->id }}</td>
+                                        <td>{{ $patient->cns }}</td>
+                                        <td>{{ $patient->name }}</td>
                                         <td>
                                             <div class="d-flex gap-1">
-                                                <a title="Editar" class="btn btn-secondary m1" href="{{ route('health_units.edit', $health_unit) }}"><span class="fas fa-edit"></span></a>
-                                                <form method="POST" action="{{ route('health_units.destroy', $health_unit) }}">
+                                                <a title="Editar" class="btn btn-secondary m1" href="{{ route('patients.edit', $patient) }}"><span class="fas fa-edit"></span></a>
+                                                <form method="POST" action="{{ route('patients.destroy', $patient) }}">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger" title="Excluir"><span class="fas fa-trash"></span></button>
@@ -40,7 +40,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                            {{ $health_units->links() }}
+                            {{ $patients->links() }}
                         @else
                             <p>Nenhuma unidade cadastrada</p>
                         @endif

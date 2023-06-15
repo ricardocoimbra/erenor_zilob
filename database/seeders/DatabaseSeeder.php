@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            HealthUnitSeeder::class
+            HealthUnitSeeder::class,
+            KindshipsTableSeeder::class,
         ]);
     }
 
